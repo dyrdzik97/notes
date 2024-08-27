@@ -37,8 +37,11 @@ function saveNotesToLocalStorage() {
 // Function to render notes
 function renderNotes() {
   noteList.innerHTML = "";
+
+  const searchTerm = searchInput.value.toLowerCase(); // Pobieramy aktualną wartość wyszukiwania
+
   const filteredNotes = notes.filter((note) =>
-    note.title.toLowerCase().includes(searchInput.value.toLowerCase())
+    note.title.toLowerCase().includes(searchTerm)
   );
 
   if (filteredNotes.length === 0) {
@@ -190,6 +193,9 @@ window.addEventListener("click", (e) => {
     closeDeleteModal();
   }
 });
+
+// Event listener to handle search input changes
+searchInput.addEventListener("input", renderNotes);
 
 // Initialize the application
 renderNotes();
