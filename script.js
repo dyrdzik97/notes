@@ -38,7 +38,7 @@ function saveNotesToLocalStorage() {
 function renderNotes() {
   noteList.innerHTML = "";
 
-  const searchTerm = searchInput.value.toLowerCase(); // Pobieramy aktualną wartość wyszukiwania
+  const searchTerm = searchInput.value.toLowerCase(); // Fetching current value of searched note title
 
   const filteredNotes = notes.filter((note) =>
     note.title.toLowerCase().includes(searchTerm)
